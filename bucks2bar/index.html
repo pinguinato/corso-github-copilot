@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bucks2Bar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .brand {
+     background: linear-gradient(90deg, #198754, #dc3545);
+     -webkit-background-clip: text;
+     background-clip: text;
+     color: transparent;
+    }
+</style>
+</head>
+<body class="bg-light">
+  <div class="container py-4">
+    <header class="text-center mb-4">
+        <h1 class="display-5 fw-bold mb-1">
+            <span class="text-success">Bucks</span><span class="text-secondary">2</span><span class="text-danger">Bar</span>
+        </h1>
+        <p class="text-muted mb-0">Tieni traccia di entrate e uscite, mese per mese</p>
+    </header>
+    <ul class="nav nav-tabs" id="mainTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#data-pane"
+                type="button" role="tab" aria-controls="data-pane" aria-selected="true">Data</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart-pane"
+                type="button" role="tab" aria-controls="chart-pane" aria-selected="false">Chart</button>
+      </li>
+    </ul>
+
+    <div class="tab-content bg-white border border-top-0 rounded-bottom p-3">
+      <div class="tab-pane fade show active" id="data-pane" role="tabpanel" aria-labelledby="data-tab" tabindex="0">
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead>
+              <tr>
+                <th scope="col">Mese</th>
+                <th scope="col" class="text-success">Entrate (€)</th>
+                <th scope="col" class="text-danger">Uscite (€)</th>
+              </tr>
+            </thead>
+            <tbody id="dataRows"></tbody>
+            <tfoot class="table-group-divider fw-bold">
+              <tr>
+                <td>Totale</td>
+                <td id="totalIncome">0,00 €</td>
+                <td id="totalExpense">0,00 €</td>
+              </tr>
+              <tr>
+                <td>Saldo</td>
+                <td colspan="2" id="balance">0,00 €</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <button type="button" class="btn btn-outline-danger" id="resetBtn">Reset</button>
+      </div>
+
+      <div class="tab-pane fade" id="chart-pane" role="tabpanel" aria-labelledby="chart-tab" tabindex="0">
+        <div class="position-relative" style="height: 50vh; min-height: 400px;">
+          <canvas id="barChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
