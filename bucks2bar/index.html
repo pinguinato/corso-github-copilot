@@ -12,6 +12,17 @@
      background-clip: text;
      color: transparent;
     }
+    :root { --brand-orange: #fd7e14; }
+    .btn {
+      background-color: var(--brand-orange);
+      border-color: var(--brand-orange);
+      color: #fff;
+    }
+    .btn:hover, .btn:active, .btn:focus-visible {
+      background-color: #e8590c;
+      border-color: #e8590c;
+      color: #fff;
+    }
 </style>
 </head>
 <body class="bg-light">
@@ -58,13 +69,14 @@
             </tfoot>
           </table>
         </div>
-        <button type="button" class="btn btn-outline-danger" id="resetBtn">Reset</button>
+        <button type="button" class="btn" id="resetBtn">Reset</button>
       </div>
 
       <div class="tab-pane fade" id="chart-pane" role="tabpanel" aria-labelledby="chart-tab" tabindex="0">
         <div class="position-relative" style="height: 50vh; min-height: 400px;">
           <canvas id="barChart"></canvas>
         </div>
+        <button type="button" class="btn mt-3" id="downloadBtn">Download</button>
       </div>
     </div>
   </div>

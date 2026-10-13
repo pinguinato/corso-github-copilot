@@ -99,4 +99,21 @@ function renderChart() {
 
 document.getElementById('chart-tab').addEventListener('shown.bs.tab', renderChart);
 
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  if (!chart) renderChart();
+  const { canvas } = chart;
+  // Il canvas è trasparente: si disegna su sfondo bianco per un PNG leggibile
+  const out = document.createElement('canvas');
+  out.width = canvas.width;
+  out.height = canvas.height;
+  const ctx = out.getContext('2d');
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, out.width, out.height);
+  ctx.drawImage(canvas, 0, 0);
+  const link = document.createElement('a');
+  link.href = out.toDataURL('image/png');
+  link.download = 'bucks2bar-grafico.png';
+  link.click();
+});
+
 renderRows();
